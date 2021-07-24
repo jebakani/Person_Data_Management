@@ -19,7 +19,8 @@ namespace PersonDataManagement
             personList.Add(new PersonDetails(5, "arun", "chennai", 19));
             personList.Add(new PersonDetails(4, "kai", "madurai", 28));
             personList.Add(new PersonDetails(7, "abc", "chennai", 64));
-           // DisplayList(personList);
+            personList.Add(new PersonDetails(15, "chen", "chennai", 78));
+            // DisplayList(personList);
         }
 
         public List<string> RetrivePersonAgeLessThan60()
@@ -48,6 +49,15 @@ namespace PersonDataManagement
             bool value = personList.Contains(personList.FirstOrDefault(x => x.name.Equals(name)));
             return value;
         }
+
+        public List<string> SkippingPersonAgeLessThan60()
+        {
+            //skipping the persons from list whose age less than 60 
+            List<PersonDetails> list = personList.FindAll(person => person.age >= 60).Take(2).ToList();
+            Console.WriteLine("\nskipping the persons from list whose age less than 60 ");
+            return (DisplayList(list));
+        }
+
         //method to display the list
         public List<string> DisplayList(List<PersonDetails> list)
         {

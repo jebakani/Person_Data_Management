@@ -37,14 +37,24 @@ namespace PersonDataManagementTest
 
         //checking for multiple test cases
         [TestMethod]
-        [DataRow("ram",true)]
-        [DataRow("arun",true)]
-        [DataRow("chan",false)]
-        public void SearchPersonTest(string name,bool expected)
+        [DataRow("ram", true)]
+        [DataRow("arun", true)]
+        [DataRow("chan", false)]
+        public void SearchPersonTest(string name, bool expected)
         {
             bool actual = data.SpecificDataRetrival(name);
             Assert.AreEqual(expected, actual);
         }
-
+        //skipping the persons whose age are less than 60
+        [TestMethod]
+        public void SkippingThePerson()
+        {
+            List<string> expected = new List<string> { "abc", "chen" };
+            List<string> actual = data.SkippingPersonAgeLessThan60();
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i], actual[i]);
+            }
+        }
     }
 }
