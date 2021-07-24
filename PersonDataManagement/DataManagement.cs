@@ -43,11 +43,15 @@ namespace PersonDataManagement
             Console.WriteLine("\n Averge age of persons in the list:"+averageAge);
             return averageAge;
         }
+        public bool SpecificDataRetrival(string name)
+        {
+            bool value = personList.Contains(personList.FirstOrDefault(x => x.name.Equals(name)));
+            return value;
+        }
         //method to display the list
         public List<string> DisplayList(List<PersonDetails> list)
         {
             List<string> returnList = new List<string>();
-            returnList = null;
             foreach (var i in list)
             {
                 Console.WriteLine("SSN:{0}  Name:{1}  Address:{2}  Age:{3}",i.SSN,i.name,i.address,i.age);
