@@ -11,6 +11,7 @@ namespace PersonDataManagement
             management.CreateList();
             management.RetrivePersonAgeLessThan60();
             management.RetrivePersonAgeBetween13And18();
+            management.AverageAge();
             Console.Read();
         }
     }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PersonDataManagement
 {
-    class DataManagement
+    public class DataManagement
     {
-        List<PersonDetails> personList = new List<PersonDetails>();
+        public List<PersonDetails> personList = new List<PersonDetails>();
         //creating the list of person with name age address and id 
         public void CreateList()
         {
@@ -19,15 +19,15 @@ namespace PersonDataManagement
             personList.Add(new PersonDetails(5, "arun", "chennai", 19));
             personList.Add(new PersonDetails(4, "kai", "madurai", 28));
             personList.Add(new PersonDetails(7, "abc", "chennai", 64));
-            DisplayList(personList);
+           // DisplayList(personList);
         }
 
-        public void RetrivePersonAgeLessThan60()
+        public List<string> RetrivePersonAgeLessThan60()
         {
             //retrive the top two person detail from the list whose age is less tha 10;
             List<PersonDetails> list = personList.FindAll(person => person.age < 60).OrderBy(x=>x.age).Take(2).ToList();
             Console.WriteLine("\nRetriving the top 2 person from list whose age less than 60 ");
-            DisplayList(list);
+            return (DisplayList(list));
         }
         public void RetrivePersonAgeBetween13And18()
         {
@@ -36,13 +36,27 @@ namespace PersonDataManagement
             Console.WriteLine("\nRetriving the top 2 person from list whose age between 13 and 18: ");
             DisplayList(list);
         }
-        //method to display the list
-        public void DisplayList(List<PersonDetails> list)
+
+        public double AverageAge()
         {
-            foreach(var i in list)
+            double averageAge = personList.Average(person => person.age);
+            Console.WriteLine("\n Averge age of persons in the list:"+averageAge);
+            return averageAge;
+        }
+        //method to display the list
+        public List<string> DisplayList(List<PersonDetails> list)
+        {
+            List<string> returnList = new List<string>();
+            returnList = null;
+            foreach (var i in list)
             {
                 Console.WriteLine("SSN:{0}  Name:{1}  Address:{2}  Age:{3}",i.SSN,i.name,i.address,i.age);
             }
+            foreach (PersonDetails i in list)
+            {
+                returnList.Add(i.name);
+            }
+            return returnList;
         }
     }
 }
