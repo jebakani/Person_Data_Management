@@ -21,6 +21,14 @@ namespace PersonDataManagement
             personList.Add(new PersonDetails(7, "abc", "chennai", 64));
             DisplayList(personList);
         }
+
+        public void RetrivePersonAgeLessThan60()
+        {
+            //retrive the top two person detail from the list whose age is less tha 10;
+            List<PersonDetails> list = personList.FindAll(person => person.age < 60).OrderBy(x=>x.age).Take(2).ToList();
+            Console.WriteLine("\nRetriving the top 2 person from list whose age less than 60 ");
+            DisplayList(list);
+        }
         //method to display the list
         public void DisplayList(List<PersonDetails> list)
         {

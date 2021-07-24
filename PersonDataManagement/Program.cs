@@ -9,6 +9,7 @@ namespace PersonDataManagement
             Console.WriteLine("Creating Person Data Management System");
             DataManagement management = new DataManagement();
             management.CreateList();
+            management.RetrivePersonAgeLessThan60();
             Console.Read();
         }
     }
