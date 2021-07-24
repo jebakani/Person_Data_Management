@@ -29,6 +29,13 @@ namespace PersonDataManagement
             Console.WriteLine("\nRetriving the top 2 person from list whose age less than 60 ");
             DisplayList(list);
         }
+        public void RetrivePersonAgeBetween13And18()
+        {
+            //retrive the top two person detail from the list whose age is between 13 and 18
+            List<PersonDetails> list = personList.FindAll(person => person.age > 13 && person.age < 18);
+            Console.WriteLine("\nRetriving the top 2 person from list whose age between 13 and 18: ");
+            DisplayList(list);
+        }
         //method to display the list
         public void DisplayList(List<PersonDetails> list)
         {

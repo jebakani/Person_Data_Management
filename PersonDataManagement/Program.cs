@@ -10,6 +10,7 @@ namespace PersonDataManagement
             DataManagement management = new DataManagement();
             management.CreateList();
             management.RetrivePersonAgeLessThan60();
+            management.RetrivePersonAgeBetween13And18();
             Console.Read();
         }
     }
