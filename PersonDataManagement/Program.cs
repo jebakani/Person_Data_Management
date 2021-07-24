@@ -7,7 +7,9 @@ namespace PersonDataManagement
         static void Main(string[] args)
         {
             Console.WriteLine("Creating Person Data Management System");
-            Console.Write();
+            DataManagement management = new DataManagement();
+            management.CreateList();
+            Console.Read();
         }
     }
 }
